@@ -1,16 +1,11 @@
 {
   "expo": {
-    "name": "Bid",
+    "name": "Bid LA",
     "slug": "Bid",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "userInterfaceStyle": "dark",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -20,14 +15,13 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+    "extra": {
+      "eas": {
+        "projectId": "f2d52727-6fa9-44c7-a7b5-93a26ab02f06"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "com.tou.bidla"
     }
   }
 }
