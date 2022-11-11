@@ -1,0 +1,28 @@
+export const translations = {
+  en: {
+    title: "Bid Lost Ark",
+    players4: "4 Players",
+    players8: "8 Players",
+    price: "Item Price",
+    bid: "Preemptive Bid",
+    maxbid: "Max Bid",
+    paid: "Gold Paid",
+    profit: "Profit",
+    summary: "Summary",
+    realprice: "Real Price (-5%)",
+    goldperplayer: "Gold per Player",
+  },
+  es: {
+    title: "Puja Lost Ark",
+    players4: "4 Jugadores",
+    players8: "8 Jugadores",
+    price: "Precio del Objeto",
+    bid: "Puja Preventiva",
+    maxbid: "Puja Máxima",
+    paid: "Oro Pagado",
+    profit: "Ganancia",
+    summary: "Resumen",
+    realprice: "Precio Real (-5%)",
+    goldperplayer: "Oro por Jugador",
+  },
+};
