@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   SegmentedButtons,
@@ -11,12 +11,27 @@ import {
 import * as Localization from "expo-localization";
 import { I18n } from "i18n-js";
 import { translations } from "./localization";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const i18n = new I18n(translations);
 i18n.locale = Localization.locale;
 i18n.enableFallback = true;
 
 export default function Home() {
+  useEffect(() => {
+    const getUserPreferences = async () => {
+      try {
+        const preferences = await AsyncStorage.getItem("@players");
+        if (preferences !== null) {
+          setPlayers(preferences);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserPreferences();
+  }, []);
+
   const [players, setPlayers] = useState("");
   const [itemprice, setItemPrice] = useState("");
   const [paidgold, setPaidgold] = useState(null);
@@ -31,6 +46,7 @@ export default function Home() {
       goldPerPlayer,
     };
   };
+
   return (
     <View style={{ backgroundColor: MD3DarkTheme.colors.background, flex: 1 }}>
       <SegmentedButtons
@@ -73,6 +89,25 @@ export default function Home() {
           </Text>
         </View>
 
+        <List.Section
+          style={!Calculate().maxbid ? { display: "none" } : styles.list}
+        >
+          <List.Accordion title={i18n.t("details")}>
+            <List.Item
+              title={`${i18n.t("realprice")}: ${Math.floor(
+                Calculate().realPrice
+              )}`}
+              titleStyle={{ fontSize: 20 }}
+            />
+            <List.Item
+              title={`${i18n.t("goldperplayer")}: ${Math.floor(
+                Calculate().goldPerPlayer
+              )}`}
+              titleStyle={{ fontSize: 20 }}
+            />
+          </List.Accordion>
+        </List.Section>
+
         <Divider style={styles.divider} />
       </View>
       <View style={!Calculate().maxbid && { display: "none" }}>
@@ -101,19 +136,11 @@ export default function Home() {
           )}
         </View>
       </View>
-      <List.Section
-        style={!Calculate().maxbid ? { display: "none" } : styles.list}
-      >
+      <List.Section style={!paidgold ? { display: "none" } : styles.list}>
         <List.Accordion title={i18n.t("summary")}>
           <List.Item
-            title={`${i18n.t("realprice")}: ${Math.floor(
-              Calculate().realPrice
-            )}`}
-            titleStyle={{ fontSize: 20 }}
-          />
-          <List.Item
-            title={`${i18n.t("goldperplayer")}: ${Math.floor(
-              Calculate().goldPerPlayer
+            title={`${i18n.t("profitperplayer")} (${players - 1}): ${Math.floor(
+              paidgold / (players - 1)
             )}`}
             titleStyle={{ fontSize: 20 }}
           />
