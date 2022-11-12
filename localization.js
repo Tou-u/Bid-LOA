@@ -15,6 +15,8 @@ export const translations = {
     profitperplayer: "Gold per Player",
     default: "Default",
     playerstitle: "Default player selection",
+    help: "Help",
+    settings: "Settings",
   },
   es: {
     title: "Puja Lost Ark",
@@ -32,5 +34,7 @@ export const translations = {
     profitperplayer: "Oro por Jugador",
     default: "Por Defecto",
     playerstitle: "Selección de jugadores por defecto",
+    help: "Ayuda",
+    settings: "Ajustes",
   },
 };

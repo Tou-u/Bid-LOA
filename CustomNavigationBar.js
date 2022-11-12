@@ -13,7 +13,15 @@ export default function CustomNavigationBar({ navigation, back, route }) {
       {back ? (
         <>
           <Appbar.BackAction onPress={navigation.goBack} />
-          <Appbar.Content title={route.name} />
+          <Appbar.Content
+            title={
+              route.name === "Help"
+                ? i18n.t("help")
+                : route.name === "Settings"
+                ? i18n.t("settings")
+                : route.name
+            }
+          />
         </>
       ) : null}
 
