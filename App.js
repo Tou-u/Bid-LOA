@@ -2,8 +2,8 @@ import { Provider, MD3DarkTheme } from "react-native-paper";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Navigator from "./Navigator";
 import Home from "./Home";
-import CustomNavigationBar from "./CustomNavigationBar";
 import Help from "./Help";
 import Settings from "./Settings";
 
@@ -17,7 +17,7 @@ export default function App() {
         <Stack.Navigator
           initialRouteName="Home"
           screenOptions={{
-            header: (props) => <CustomNavigationBar {...props} />,
+            header: (props) => <Navigator {...props} />,
           }}
         >
           <Stack.Screen

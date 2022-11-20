@@ -2,14 +2,8 @@ import { useState, useEffect } from "react";
 import { View } from "react-native";
 import { MD3DarkTheme, Text } from "react-native-paper";
 import { Picker } from "@react-native-picker/picker";
+import i18n from "./translation/i18n";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as Localization from "expo-localization";
-import { I18n } from "i18n-js";
-import { translations } from "./localization";
-
-const i18n = new I18n(translations);
-i18n.locale = Localization.locale;
-i18n.enableFallback = true;
 
 export default function Settings() {
   const [selectedPlayers, setSelectedPlayers] = useState(null);

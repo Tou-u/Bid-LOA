@@ -8,14 +8,8 @@ import {
   Divider,
   MD3DarkTheme,
 } from "react-native-paper";
-import * as Localization from "expo-localization";
-import { I18n } from "i18n-js";
-import { translations } from "./localization";
+import i18n from "./translation/i18n";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-const i18n = new I18n(translations);
-i18n.locale = Localization.locale;
-i18n.enableFallback = true;
 
 export default function Home() {
   useEffect(() => {
