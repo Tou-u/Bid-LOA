@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import {
   SegmentedButtons,
   TextInput,
@@ -48,7 +48,9 @@ export default function Home() {
   };
 
   return (
-    <View style={{ backgroundColor: MD3DarkTheme.colors.background, flex: 1 }}>
+    <ScrollView
+      style={{ backgroundColor: MD3DarkTheme.colors.background, flex: 1 }}
+    >
       <SegmentedButtons
         style={styles.segmented}
         value={players}
@@ -146,7 +148,7 @@ export default function Home() {
           />
         </List.Accordion>
       </List.Section>
-    </View>
+    </ScrollView>
   );
 }
 
